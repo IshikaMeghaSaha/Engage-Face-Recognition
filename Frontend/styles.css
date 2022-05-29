@@ -1,0 +1,255 @@
+@import url("https://fonts.google.com/specimen/Poppins?query=pop");
+
+* {
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body,
+input{
+    font-family: "Poppins",sans-serif;
+}
+
+.container{
+    position: relative;
+    width:100%;
+    background-color:white;
+    min-height: 100vh;
+    overflow: hidden;
+    z-index: 6;
+}
+
+.forms-container{
+    position:absolute;
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.title{
+    font-size: 2.5rem;
+    color:gray;
+}
+
+.input-field{
+    max-width:380px;
+    width:100%;
+    height: 55px;
+    background-color: beige;
+    margin:10px 0;
+    border-radius: 55px;
+    display:grid;
+    grid-template-columns: 8% 85%;
+    padding:0 0.4rem;
+    position:relative;
+}
+
+.input-field input{
+    background: none;
+    outline: none;
+    border:none;
+    line-height: 1;
+    font-weight: 600;
+    font-size: 1.2rem;
+    color:grey;
+}
+
+.input-field :placeholder-shown{
+    font-weight: 500;
+    color:grey;
+}
+
+.btn{
+    width:150px;
+    height:45px;
+    outline:none;
+    border:none;
+    border-radius: 48px;
+    background-color:#20dbc2;
+    color:white;
+    font-weight: 600;
+    font-size: 1rem;
+    text-transform: uppercase;
+    margin:10px 0;
+    transition: all 0.5s;
+}
+
+.btn:hover{
+    background-color: #00bfa6;
+}
+
+.signin-signup{
+    position:absolute;
+    top:50%;
+    left:75%;
+    transform:translate(-50%,-50%);
+    display:grid;
+    grid-template-columns: 1fr;
+    z-index: 5;
+}
+
+.signup-signup{
+    position:absolute;
+    top:50%;
+    left:25%;
+    transform:translate(-50%,-50%);
+    display:grid;
+    grid-template-columns: 1fr;
+    z-index: 5;
+}
+
+form{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding:0 5rem;
+    grid-column: 1/2;
+    grid-row: 1/2;
+}
+
+form.sign-in-form{
+    z-index: 2;
+}
+
+form.sign-up-form{
+    z-index: 1;
+    opacity:0;
+}
+
+.container::before{
+    content:'';
+    position:absolute;
+    width: 2000px;
+    height:2000px;
+    top:-10%;
+    right:48%;
+    background-image: linear-gradient(-45deg,#20dbc2 0%,#00bfa6 100%);
+    transform: translateY(-50%);
+    border-radius: 50%;
+    transition :1.2s ease-in-out;
+}
+
+.image{
+    width:200px;
+    height: 180px;
+    transition:all 1s 1.2s 0.4s ease-in-out;
+}
+
+.panels-container{
+    position:absolute;
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+    display:grid;
+    grid-template-columns: repeat(2,1fr);
+}
+
+.panel{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    z-index: 7;
+}
+
+.left-panel{
+    padding:3rem 27% 2rem 20%;
+    font-size: 1.5rem;
+    color:white;
+}
+
+.left-panel .image{
+    transition:all 0.5s;
+    top:120px;
+    left:20px;
+}
+
+.right-panel{
+    padding:3rem 27% 2rem 20%;
+    font-size: 1.5rem;
+    color:white;
+}
+
+.panel .content{
+    color:white;
+    transition:all 1s 2s 1s ease-in-out;
+}
+
+.panel h3{
+    font-weight: 600;
+    line-height: 2;
+    font-size: 2.5rem;
+    color:white;
+}
+
+.btn.transparent{
+    margin:10px 0;
+    background: none;
+    border:2px solid white;
+    width:130px;
+    height:41px;
+    font-weight:600;
+    font-size:1rem;
+    transition:all 0.5s;
+}
+
+.right-panel .content,.right-panel .image{
+    transform:translateX(800px);
+    position: relative;
+}
+ .right-panel .image{
+     transition:all 1s 2s 1s ease-in-out;
+     top:40px;
+     left:130px;
+ }
+
+.container.sign-up-mode::before{
+    transform:translate(100%,-50%);
+    right:50%;
+}
+
+.container.sign-up-mode .left-panel .image,
+.container.sign-up-mode .left-panel .content{
+    transform:translate(-800px);
+}
+
+.container.sign-up-mode .right-panel .image,
+.container.sign-up-mode .right-panel .content{
+    transform:translateX(80%);
+}
+
+
+
+.container.sign-up-mode .left-panel{
+    pointer-events: none;
+}
+
+.container.sign-up-mode .right-panel{
+    pointer-events: all;
+}
+
+.container.sign-up-mode .signin-signup{
+    left:25%;
+}
+
+.container.sign-up-mode form.sign-in-form{
+    z-index: 1;
+    opacity: 0;
+}
+
+.container.sign-up-mode form.sign-up-form{
+    z-index: 2;
+    opacity: 1;
+}
